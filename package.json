@@ -1,0 +1,28 @@
+{
+  "name": "liri-node-app",
+  "version": "1.0.1",
+  "description": "liri, the liri",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vinz",
+  "license": "MIT",
+  "dependencies": {
+    "node-spotify-api": "^1.0.5",
+    "request": "^2.81.0",
+    "twitter": "^1.7.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vin-vins-vinz/liri-node-app.git"
+  },
+  "keywords": [
+    "liri"
+  ],
+  "bugs": {
+    "url": "https://github.com/vin-vins-vinz/liri-node-app/issues"
+  },
+  "homepage": "https://github.com/vin-vins-vinz/liri-node-app#readme"
+}
