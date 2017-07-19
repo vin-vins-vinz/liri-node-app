@@ -43,15 +43,16 @@ var getMovie = function(){
 	request('http://www.omdbapi.com/?t=' + userInput + '&plot=short&y=&r=json&apikey=40e9cece', 
 		function (error, response, body){
 			if (!error && response.statusCode == 200){
-				var jsonData = JSON.parse(body);
-				console.log('Title: ' + jsonData.Title);
-				console.log('Release Year: ' + jsonData.Year);
-				console.log('Rated: ' + jsonData.Rated);
-				console.log('Plot: ' + jsonData.Plot);
-				console.log('Actors: ' + jsonData.Actors);
-				console.log('IMDB Rating: ' + jsonData.imdbRating);
-				console.log('Rotten Tomatoes Rating: ' + jsonData.tomatoRating);
-
+				if (userCommand === "movie-this"){
+					var jsonData = JSON.parse(body);
+					console.log('Title: ' + jsonData.Title);
+					console.log('Release Year: ' + jsonData.Year);
+					console.log('Rated: ' + jsonData.Rated);
+					console.log('Plot: ' + jsonData.Plot);
+					console.log('Actors: ' + jsonData.Actors);
+					console.log('IMDB Rating: ' + jsonData.imdbRating);
+					console.log('Rotten Tomatoes Rating: ' + jsonData.tomatoRating);
+				}
 			}
 		});
 
