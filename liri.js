@@ -4,6 +4,58 @@
 // spotify-this-song
 // movie-this
 // do-what-it-says
+var Twitter = require('twitter');
+var keys = require('./keys.js');
+
+var userCommand = process.argv[2];
+var userInput = process.argv[3];
+
+var getTweets = function(){
+	var client = new Twitter(keys.twitterKeys);
+
+	var twitterParams = {screen_name: 'ndotherDim'};
+	
+	client.get('statuses/user_timeline', twitterParams, function(error, tweets, response){
+		if (!error) {
+			// console.log(tweets);
+			for (i=0; i<tweets.length; i++){
+				console.log(tweets[i].text)
+			} 
+		}
+	});
+}
+
+var myTweets = function(){
+	if (userCommand === "my-tweets"){
+		getTweets();
+	} else{ 
+		console.log("Unknown commands.")
+	}
+}
+
+var findSpotify = function(songName){
+	spotify.search({
+
+	})
+}
+
+var getMovie = function(){
+	request('http://www.omdbapi.com/?t=' + userInput + '&plot=short&y=&r=json&apikey=40e9cece', 
+		function (error, response, body){
+			if (!error && response.statusCode == 200){
+				var jsonData = JSON.parse(body);
+				console.log('Title: ' + jsonData.Title);
+				console.log('Release Year: ' + jsonData.Year);
+				console.log('Rated: ' + jsonData.Rated);
+				console.log('Plot: ' + jsonData.Plot);
+				console.log('Actors: ' + jsonData.Actors);
+				console.log('IMDB Rating: ' + jsonData.imdbRating);
+				console.log('Rotten Tomatoes Rating: ' + jsonData.tomatoRating);
+
+			}
+		});
+
+}
 // What Each Command Should Do
 
 // node liri.js my-tweets
